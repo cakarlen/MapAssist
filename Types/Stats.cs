@@ -1,23 +1,4 @@
-﻿/**
- *   Copyright (C) 2021 okaygo
- *
- *   https://github.com/misterokaygo/MapAssist/
- *
- *  This program is free software: you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation, either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  You should have received a copy of the GNU General Public License
- *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
- **/
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -68,7 +49,7 @@ namespace MapAssist.Types
             State.STATE_BLADESOFICE,
             State.STATE_CLAWSOFTHUNDER,
             State.STATE_SPEARMASTERY,
-            State.STATE_SWORDMASTERY,
+            State.STATE_BLADEMASTERY,
             State.STATE_THROWINGMASTERY,
             State.STATE_WARMTH,
             State.STATE_WEAPONBLOCK
@@ -311,7 +292,7 @@ namespace MapAssist.Types
         STATE_FIREMASTERY,
         STATE_LIGHTNINGMASTERY,
         STATE_COLDMASTERY,
-        STATE_SWORDMASTERY,
+        STATE_BLADEMASTERY,
         STATE_AXEMASTERY,
         STATE_MACEMASTERY,
         STATE_POLEARMMASTERY,
