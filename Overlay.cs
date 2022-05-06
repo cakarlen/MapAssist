@@ -1,4 +1,5 @@
-﻿using GameOverlay.Windows;
+﻿using GameOverlay.Drawing;
+using GameOverlay.Windows;
 using MapAssist.Helpers;
 using MapAssist.Settings;
 using MapAssist.Types;
