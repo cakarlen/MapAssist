@@ -1024,18 +1024,40 @@ namespace MapAssist.Helpers
                 var font = CreateFont(gfx, MapAssistConfiguration.Loaded.ItemLog.LabelFont, fontSize);
                 var position = anchor.Add(0, i * lineHeight);
                 var brush = CreateSolidBrush(gfx, item.Color, 1);
+                var stringSize = gfx.MeasureString(font, item.Text);
 
                 if (MapAssistConfiguration.Loaded.ItemLog.Position == GameInfoPosition.TopRight)
                 {
-                    var stringSize = gfx.MeasureString(font, item.Text);
                     position = position.Subtract(stringSize.X, 0);
+                }
+
+                if (MapAssistConfiguration.Loaded.ItemLog.ShowDistanceToItem && item.Area == _gameData.Area && !item.UnitItem.IsInStore)
+                {
+                    var smallFont = CreateFont(gfx, MapAssistConfiguration.Loaded.ItemLog.LabelFont, fontSize * 0.7f);
+                    var rangePosition = position.Add(stringSize.X + 8, fontSize * 0.2f);
+
+                    var rangeText = item.UnitItem.IsDropped
+                        ? $"(range: {Math.Round(_gameData.PlayerPosition.DistanceTo(item.UnitItem.Position))})"
+                        : "(picked up)";
+
+                    if (MapAssistConfiguration.Loaded.ItemLog.Position == GameInfoPosition.TopRight)
+                    {
+                        var rangeTextSize = gfx.MeasureString(smallFont, rangeText);
+                        position = position.Subtract(rangeTextSize.X, 0);
+                        rangePosition = rangePosition.Subtract(rangeTextSize.X, 0);
+                    }
+
+                    if (textShadow)
+                    {
+                        gfx.DrawText(smallFont, shadowBrush, rangePosition.X + shadowOffset, rangePosition.Y + shadowOffset, rangeText);
+                    }
+                    gfx.DrawText(smallFont, brush, rangePosition, rangeText);
                 }
 
                 if (textShadow)
                 {
                     gfx.DrawText(font, shadowBrush, position.X + shadowOffset, position.Y + shadowOffset, item.Text);
                 }
-
                 gfx.DrawText(font, brush, position, item.Text);
             }
         }
@@ -1126,6 +1148,8 @@ namespace MapAssist.Helpers
                 for (var i = 0; i < 4; i++)
                 {
                     var items = _gameData.PlayerUnit.BeltItems[i].Where(x => x != null).ToArray();
+
+                    if (items.Length == 0) continue;
 
                     var itemTypes = items.Select(x => x.Item.IsHealthPotion() ? 0 : x.Item.IsManaPotion() ? 1 : x.Item.IsRejuvPotion() ? 2 : 3).ToArray();
                     var color = itemTypes.Distinct().Count() == 1 && itemTypes[0] < colors.Length ? colors[itemTypes[0]] : Color.White;
