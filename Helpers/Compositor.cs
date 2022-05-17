@@ -121,7 +121,7 @@ namespace MapAssist.Helpers
                             var i = imageSize.Width * 4 * y + x * 4;
                             var type = renderArea.CollisionGrid[_y][_x];
 
-                            // // Uncomment this to show a red border for debugging
+                            // // Uncomment this to show a red border for debugging - TODO: Look into this a little more. May be able to figure out where door openings are
                             // if (x == 0 || y == 0 || y == imageSize.Height - 1 || x == imageSize.Width - 1)
                             // {
                             //     bytes[i] = 0;
