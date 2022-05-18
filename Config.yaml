@@ -264,7 +264,6 @@ ItemLog:
   PlaySoundOnDrop: true
   ShowDistanceToItem: true
   ShowDirectionToItem: true
-  ShowItemUntilPickedUp: false
   SoundFile: ''
   SoundVolume: 100
   DisplayForSeconds: 45
