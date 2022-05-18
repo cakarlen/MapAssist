@@ -21,8 +21,8 @@ RenderingConfiguration:
   Size: 800
   ZoomLevel: 1
   BuffSize: 0.9
-  BuffAlertLowRes: true
   BuffPosition: Bottom
+  BuffAlertLowRes: true
   ShowLife: false
   ShowLifePerc: true
   ShowMana: false
@@ -270,11 +270,15 @@ ItemLog:
   LabelFont: Exocet Blizzard Mixed Caps
   LabelFontSize: 20.25
   LabelTextShadow: true
-MapColorConfiguration:
+  SuperiorColor: Gray
+  MagicColor: RoyalBlue
+  RareColor: Yellow
+  SetColor: Lime
   Border: 255, 255, 128
+  CraftedColor: 255, 174, 0
+MapColorConfiguration:
+  Border: 255, 255, 255
 GameInfo:
-  Position: TopLeft
-  ShowGameName: true
   ShowArea: true
   ShowDifficulty: true
   ShowAreaLevel: true
