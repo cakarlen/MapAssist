@@ -274,7 +274,7 @@ ItemLog:
   MagicColor: RoyalBlue
   RareColor: Yellow
   SetColor: Lime
-  Border: 255, 255, 128
+  UniqueColor: 165, 146, 99
   CraftedColor: 255, 174, 0
 MapColorConfiguration:
   Border: 255, 255, 255
